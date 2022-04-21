@@ -13,12 +13,30 @@
 </head>
 <body>
     <div class="row">
-        <div class="card">
+        <div class="card mt-3">
           @if (session('status'))
           <div class="alert alert-success" id="msg">
               {{ session('status') }}
           </div>
         @endif
+
+        {{-- <li class="nav-item">
+          <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit">Logout</button>
+          </form>
+        </li> --}}
+        <div class="row">
+          <div class="ml-3 col-3">
+              <h3><i>{{ Auth::user()->name }}</i></h3>
+          </div>
+          <div class="offset-8">
+            <form action="{{ route('logout') }}" method="POST">
+              @csrf
+              <button type="submit" class="btn  badge-btn badge-pill badge-warning">Logout</button>
+            </form>
+          </div>
+        </div>
             <div class="card-body">
                 <div class="col-12 col-sm-12">
                     <div class="card card-primary card-tabs">
@@ -114,5 +132,10 @@
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
+<script>
+   setTimeout(() => {
+    document.querySelector("#msg").style.display="none";
+  }, 3000);
+</script>
 </body>
 </html>

@@ -88,6 +88,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
         
           <li class="nav-item">
+            <a href="{{ route('category.index') }}" class="nav-link {{Request::segment(1) == 'category' ? 'active' : ''}}" >
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Categories
+              </p>
+            </a>
+            <a href="{{ route('user.index') }}" class="nav-link {{Request::segment(1) == 'user' ? 'active' : ''}}" >
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Users
+              </p>
+            </a>
+
             <a href="{{ route('dish.index') }}" class="nav-link {{Request::segment(1) == 'dish' ? 'active' : ''}}" >
               <i class="nav-icon fas fa-th"></i>
               <p>
